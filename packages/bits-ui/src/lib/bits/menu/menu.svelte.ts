@@ -9,18 +9,15 @@ import {
 	type WritableBoxedValues,
 	simpleBox,
 	boxWith,
-	type ReadableBox,
+	type ReadableBox
 } from "svelte-toolbelt";
 import { Context, watch } from "runed";
 import {
-	FIRST_LAST_KEYS,
-	LAST_KEYS,
 	SELECTION_KEYS,
 	SUB_OPEN_KEYS,
 	getCheckedState,
-	isMouseEvent,
+	isMouseEvent
 } from "./utils.js";
-import { focusFirst } from "$lib/internal/focus.js";
 import { CustomEventDispatcher } from "$lib/internal/events.js";
 import type {
 	AnyFn,
@@ -30,7 +27,7 @@ import type {
 	BitsPointerEvent,
 	OnChangeFn,
 	RefAttachment,
-	WithRefOpts,
+	WithRefOpts
 } from "$lib/internal/types.js";
 import { isElement, isElementOrSVGElement, isHTMLElement } from "$lib/internal/is.js";
 import { kbd } from "$lib/internal/kbd.js";
@@ -39,7 +36,7 @@ import {
 	getAriaChecked,
 	boolToStr,
 	getDataOpenClosed,
-	boolToEmptyStrOrUndef,
+	boolToEmptyStrOrUndef
 } from "$lib/internal/attrs.js";
 import type { Direction } from "$lib/shared/index.js";
 import { IsUsingKeyboard } from "$lib/bits/utilities/is-using-keyboard/is-using-keyboard.svelte.js";
@@ -339,7 +336,8 @@ export class MenuContentState {
 			return;
 		}
 
-		const target = e.target;
+		// Disable typeahead
+		/*const target = e.target;
 		const currentTarget = e.currentTarget;
 		if (!isHTMLElement(target) || !isHTMLElement(currentTarget)) return;
 
@@ -373,7 +371,7 @@ export class MenuContentState {
 		if (LAST_KEYS.includes(e.key)) {
 			candidateNodes.reverse();
 		}
-		focusFirst(candidateNodes, { select: false }, () => this.domContext.getActiveElement());
+		focusFirst(candidateNodes, { select: false }, () => this.domContext.getActiveElement());*/
 	}
 
 	onblur(e: BitsFocusEvent) {
